@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacWalpaper Support</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --text-color: #1d1d1f;
+            --text-secondary: #86868b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-gradient: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+                --glass-bg: rgba(30, 30, 30, 0.7);
+                --glass-border: rgba(255, 255, 255, 0.1);
+                --text-color: #f5f5f7;
+                --text-secondary: #86868b;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 8px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .answer {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>MacWalpaper</h1>
+            <div class="subtitle">Bring your desktop to life</div>
+        </header>
+
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="question">How do I add my own videos?</div>
+                <div class="answer">Open the Settings window from the menu bar icon, go to the "Library" tab, and click
+                    the "+" button to select video files from your Mac. You can also drag and drop videos directly into
+                    the window.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Does it drain my battery?</div>
+                <div class="answer">MacWalpaper is designed to be energy efficient. It automatically pauses playback
+                    when you disconnect from power (if Low Power Mode is enabled) or when you have a fullscreen
+                    application open to save resources.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Which video formats are supported?</div>
+                <div class="answer">We support all major video formats compatible with macOS, including MP4, MOV, M4V,
+                    and MKV.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">Can I use different wallpapers for different screens?</div>
+                <div class="answer">Yes! MacWalpaper automatically detects all connected displays. You can set a global
+                    wallpaper or configure specific playlists for each screen.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contact Support</h2>
+            <p>Need more help? Found a bug? We're here to assist you.</p>
+            <a href="mailto:berkearastam@gmail.com" class="contact-btn">Email Support</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 MacWalpaper. All rights reserved.</p>
+            <p><a href="privacy.html" style="color: var(--text-secondary);">Privacy Policy</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
