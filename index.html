@@ -4,25 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacWalpaper Support</title>
+    <title>MacWallpaper Support</title>
     <style>
         :root {
             --primary-color: #007AFF;
+            --secondary-color: #5856D6;
             --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.8);
             --glass-border: rgba(255, 255, 255, 0.5);
             --text-color: #1d1d1f;
             --text-secondary: #86868b;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-gradient: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
-                --glass-bg: rgba(30, 30, 30, 0.7);
+                --glass-bg: rgba(30, 30, 30, 0.8);
                 --glass-border: rgba(255, 255, 255, 0.1);
                 --text-color: #f5f5f7;
                 --text-secondary: #86868b;
             }
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -35,87 +42,135 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
-            width: 90%;
-            margin: 40px auto;
+            max-width: 900px;
+            width: 95%;
+            margin: 20px;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            background: linear-gradient(135deg, #007AFF, #5856D6);
+            font-size: 56px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .subtitle {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--text-secondary);
+            font-weight: 400;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         h2 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
         }
 
         .faq-item {
-            margin-bottom: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         .question {
             font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 8px;
+            font-size: 20px;
+            margin-bottom: 12px;
             color: var(--primary-color);
         }
 
         .answer {
-            line-height: 1.6;
             color: var(--text-color);
+        }
+
+        .contact-section {
+            text-align: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
         }
 
         .contact-btn {
             display: inline-block;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.2s;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
         }
 
         .contact-btn:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             font-size: 14px;
             color: var(--text-secondary);
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -123,51 +178,48 @@
 <body>
     <div class="container">
         <header>
-            <h1>MacWalpaper</h1>
+            <h1>MacWallpaper</h1>
             <div class="subtitle">Bring your desktop to life</div>
         </header>
 
         <div class="section">
             <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="question">How do I add my own videos?</div>
+                    <div class="answer">Open the Settings window from the menu bar icon, go to the "Library" tab, and click the "+" button to select video files from your Mac. You can also drag and drop videos directly into the window.</div>
+                </div>
 
-            <div class="faq-item">
-                <div class="question">How do I add my own videos?</div>
-                <div class="answer">Open the Settings window from the menu bar icon, go to the "Library" tab, and click
-                    the "+" button to select video files from your Mac. You can also drag and drop videos directly into
-                    the window.</div>
-            </div>
+                <div class="faq-item">
+                    <div class="question">Does it drain my battery?</div>
+                    <div class="answer">MacWallpaper is designed to be energy efficient. It automatically pauses playback when you disconnect from power (if Low Power Mode is enabled) or when you have a fullscreen application open to save resources.</div>
+                </div>
 
-            <div class="faq-item">
-                <div class="question">Does it drain my battery?</div>
-                <div class="answer">MacWalpaper is designed to be energy efficient. It automatically pauses playback
-                    when you disconnect from power (if Low Power Mode is enabled) or when you have a fullscreen
-                    application open to save resources.</div>
-            </div>
+                <div class="faq-item">
+                    <div class="question">Which video formats are supported?</div>
+                    <div class="answer">We support all major video formats compatible with macOS, including MP4, MOV, M4V, and MKV.</div>
+                </div>
 
-            <div class="faq-item">
-                <div class="question">Which video formats are supported?</div>
-                <div class="answer">We support all major video formats compatible with macOS, including MP4, MOV, M4V,
-                    and MKV.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="question">Can I use different wallpapers for different screens?</div>
-                <div class="answer">Yes! MacWalpaper automatically detects all connected displays. You can set a global
-                    wallpaper or configure specific playlists for each screen.</div>
+                <div class="faq-item">
+                    <div class="question">Can I use different wallpapers for different screens?</div>
+                    <div class="answer">Yes! MacWallpaper automatically detects all connected displays. You can set a global wallpaper or configure specific playlists for each screen.</div>
+                </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>Contact Support</h2>
-            <p>Need more help? Found a bug? We're here to assist you.</p>
-            <a href="mailto:berkearastam@gmail.com" class="contact-btn">Email Support</a>
+            <div class="contact-section">
+                <h2>Contact Support</h2>
+                <p>Need more help? Found a bug? We're here to assist you.</p>
+                <p>For support inquiries, please email us at: <strong>berkearastam@gmail.com</strong></p>
+                <a href="mailto:berkearastam@gmail.com?subject=MacWallpaper%20Support%20Inquiry" class="contact-btn">Send Email</a>
+            </div>
         </div>
 
         <footer>
-            <p>&copy; 2025 MacWalpaper. All rights reserved.</p>
-            <p><a href="privacy.html" style="color: var(--text-secondary);">Privacy Policy</a></p>
+            <p>&copy; 2025 MacWallpaper. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
         </footer>
     </div>
 </body>
-
 </html>
